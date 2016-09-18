@@ -16,6 +16,11 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
+    private int[] tabIcons = {
+            R.drawable.ic_android_white_24dp,
+            R.drawable.ic_extension_white_18dp,
+            R.drawable.ic_grade_white_24dp
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,14 @@ public class MainActivity extends AppCompatActivity {
 
         mTabLayout = (TabLayout) findViewById(R.id.tabs);
         mTabLayout.setupWithViewPager(mViewPager);
+        setTabIcons();
+    }
+
+    private void setTabIcons() {
+        int j = 0;
+        for(int icons : tabIcons) {
+            mTabLayout.getTabAt(j++).setIcon(icons);
+        }
     }
 
     private void setupViewPager(ViewPager viewPager) {
